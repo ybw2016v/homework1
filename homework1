@@ -1,0 +1,62 @@
+//这是一个C语言写的程序
+//作者联系方式：
+//yubowen@mail.sdu.edu.cn
+/*
+版权所有（C） 1998<Yu Bowen>
+这一程序是自由软件，你可以遵照自由软件基金会出版的GNU通用公共许可证条款来修改和重新发布这一程序。或者用许可证的第二版，或者（根据你的选择）用任何更新的版本。
+发布这一程序的目的是希望它有用，但没有任何担保。甚至没有适合特定目的的隐含的担保。更详细的情况请参阅GNU通用公共许可证。
+*/
+#include<stdio.h>
+main()
+{
+	float a, b, c, d, e;
+	d = 0;
+	e = 0;
+	char dog;
+	printf("请输入算式。\n");
+	scanf("%f%c%f", &a, &dog, &b);
+	{
+		switch (dog)
+		{
+		case '+':
+			{
+				c = a + b;
+				d++;
+			}
+			break;
+		case '-':
+			{
+				c = a - b;
+				d++;
+			}
+			break;
+		case '*':
+			{
+				c = a * b;
+				d++;
+			}
+			break;
+		case '/':
+			{
+				d++;
+				if (b == 0)
+				{
+					e = 1;
+				}
+				else
+					c = a / b;
+			}
+			break;
+
+		}
+	}
+	if (d == 0)
+		printf("逻辑错误，CPU即将自毁！");
+	else
+	{
+		if (e == 1)
+			printf("%f%c%f=∞", a, dog, b);
+		else
+			printf("%f%c%f=%f", a, dog, b, c);
+	}
+}
